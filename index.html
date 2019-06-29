@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>APIクライアント</title>
+    <link rel="stylesheet" href="css/rest_api_client.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/rest_api_client.js"></script>
+</head>
+
+<body>
+    <h1>API操作</h1>
+    <div class="botton">
+        <button id="add_operation">add</button>
+        <button id="delete_operation">delete</button>
+    </div>
+    <form id="api_client">
+        <input type="submit" value="送信" />
+        <section class="api" api_number="1">
+            <div class="operation" operation_number="1">
+                <label for="action_1"> 操作:</label>
+                <select name="action_1">
+                    <option value="delete">delete</option>
+                    <option value="create">create</option>
+                    <option value="modify">modify</option>
+                </select>
+            </div>
+            <div class="parameter" parameter_number="1">
+            </div>
+            <div class="result" result_number="1">
+            </div>
+        </section>
+    </form>
+
+</body>
+
+</html>
