@@ -3,7 +3,11 @@
 }
 
 .api {
-    border: solid black;
+    background-color: beige;
     margin: 10px;
     padding: 5px;
+}
+
+h5,.parameter,.result {
+    margin: 5px;
 }

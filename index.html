@@ -16,24 +16,28 @@
         <button id="add_operation">add</button>
         <button id="delete_operation">delete</button>
     </div>
-    <form id="api_client">
-        <input type="submit" value="送信" />
+
+    <input id="api_send" type="submit" value="API送信" />
+    <div class="wrapper">
         <section class="api" api_number="1">
             <div class="operation" operation_number="1">
                 <label for="action_1"> 操作:</label>
                 <select name="action_1">
+                    <option value=""></option>
                     <option value="delete">delete</option>
                     <option value="create">create</option>
                     <option value="modify">modify</option>
                 </select>
             </div>
-            <div class="parameter" parameter_number="1">
-            </div>
+            <h5>パラメータ</h5>
+            <form class="parameter" parameter_number="1" action="javascript:void(0);">
+            </form>
+            <h5>ログ</h5>
             <div class="result" result_number="1">
             </div>
         </section>
-    </form>
-
+    </div>
+    <footer></footer>
 </body>
 
 </html>
