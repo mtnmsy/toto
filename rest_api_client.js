@@ -36,11 +36,10 @@ $(() => {
         const api_number_max = $('section').length;
         let deferred = $.Deferred().resolve();
         for (let api_number = 1; api_number <= api_number_max; api_number++) {
-            //deferred = deferred.then(setTimeout(exec_api, 1000 * api_number, api_number));
-            deferred = deferred.then(exec_api(api_number));
+            deferred = deferred.then(() => { return test(api_number); });
         }
     });
-})
+});
 
 function create_form(operation_number) {
     $(".parameter[parameter_number='" + operation_number + "'")
@@ -50,7 +49,7 @@ function create_form(operation_number) {
                     <label for="file_${operation_number}">Choose a xml file</label>
                     <input type="file" id="file_${operation_number}" name="xmlFile" multiple>
                 </div>`);
-}
+};
 
 function delete_form(operation_number) {
     $(".parameter[parameter_number='" + operation_number + "'")
@@ -63,8 +62,23 @@ function delete_form(operation_number) {
                     <label for="status_${operation_number}">STATUS: <abbr title="required">*</abbr></label>
                     <input id="status_${operation_number}" type="text" name="status_${operation_number}">
                 </div>`);
-}
+};
 
+function test(api_number) {
+    const operation = $("select[name='action_" + api_number + "']").val();
+    const parameter = $(".parameter[parameter_number='" + api_number + "']").serialize();
+    let dfd = $.Deferred();
+
+    setTimeout(function () {
+        $(".result[result_number='" + api_number + "']").empty();
+        $(".result[result_number='" + api_number + "']").append(operation);
+        $(".result[result_number='" + api_number + "']").append(parameter);
+        $('#api_send').attr('disabled', false);
+        dfd.resolve();
+    }, 2000, api_number);
+
+    return dfd.promise();
+};
 
 function exec_api(api_number) {
     const operation = $("select[name='action_" + api_number + "']").val();
@@ -83,4 +97,4 @@ function exec_api(api_number) {
         $(".result[result_number='" + api_number + "']").append(parameter);
         $('#api_send').attr('disabled', false);
     });
-}
+};
