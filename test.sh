@@ -26,6 +26,7 @@ function create_ul_li(){
     echo "<ul>"
     echo "<li>${dir}</li>"
     create_ul_li ${dir}
+    echo "</ul>"
   done
 
   echo "<ul>"
@@ -35,5 +36,5 @@ function create_ul_li(){
   echo "</ul>"
 }
 
-create_ul_li /Users/matsuno/Downloads
+create_ul_li /Users/matsuno/work
 
